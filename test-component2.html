@@ -1,0 +1,76 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="test-component2">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+        table {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+      <template is="dom-if" if="[[isList]]">
+        <ul>
+            <li>Listado</li>
+            <li>De</li> 
+            <li>Elemento</li> 
+        </ul>
+      </template>
+      <template is="dom-if" if="[[isTablet]]">
+        <table>
+            <thead>
+                <th>Cabecera</th>
+                <th>de</th>
+                <th>Tabla</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Grupo</td>
+                    <td>De</td>
+                    <td>Datos</td>
+                </tr>
+                <tr>
+                    <td>Un</td>
+                    <td>Grupo</td>
+                    <td>Mas</td>
+                </tr>
+                <tr>
+                    <td>El</td>
+                    <td>Ultimo</td>
+                    <td>Grupo</td>
+                </tr>
+            </tbody>
+        </table>
+      </template>
+  </template>
+
+  <script>
+    /**
+     * `test-component2`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class TestComponent2 extends Polymer.Element {
+      static get is() { return 'test-component2'; }
+      static get properties() {
+        return {
+          isList: {
+            type: Boolean,
+            value: false
+          },
+          isTablet: {
+            type: Boolean,
+            value: false
+          }
+        };
+      }
+    }
+
+    window.customElements.define(TestComponent2.is, TestComponent2);
+  </script>
+</dom-module>
